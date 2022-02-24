@@ -53,9 +53,9 @@ Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
 |
 */
 
-// Route::get('/insert',function(){
-//     DB::insert('insert into posts(title, content) values(?,?)',['PHP with Laravel','Laravel is the best thing that has happened to PHP']);
-// });
+Route::get('/insert',function(){
+    DB::insert('insert into posts(title, content) values(?,?)',['Laravel is awesome','Laravel is the best thing that has happened to PHP,PERIOD']);
+});
 
 // Route::get('/read',function(){
 //     $results = DB::select('select * from posts where id = ?',[1]);
@@ -85,13 +85,30 @@ Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
 |
 */
 
-Route::get('/read', function(){
+// Route::get('/read', function(){
     
-    // $posts = Post::all();
-    // foreach($posts as $post){
-    //     return $post;
-    // }
+//     // $posts = Post::all();
+//     // foreach($posts as $post){
+//     //     return $post;
+//     // }
 
-    $posts = Post::find(2);
+//     $posts = Post::find(2);
+//     return $posts;
+// });
+
+// Route::get('/findwhere',function(){
+    
+//     $posts = Post::where('id',3)->orderBy('id', 'desc')->take(1)->get();
+    
+//     return $posts;
+// });
+
+Route::get('/findmore',function(){
+
+    $posts = Post::findOrFail(2);
     return $posts;
+
+    // $post = Post::where('users_count', '<', 50)->firstOrFail();
+    // return $posts;
 });
+
