@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //AULA 59
+    //criacao de uma relacao 1 para 1
+    public function post(){
+        return $this->hasOne('App\Models\Post');
+    }
+
+    //AULA 61
+    //criacao de uma relacao 1 para muitos
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
+
 }
