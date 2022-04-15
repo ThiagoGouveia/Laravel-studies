@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Roles;
 
 /*
 |--------------------------------------------------------------------------
@@ -233,23 +234,46 @@ Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
 |
 */
 
-// //One to One relationship
+//One to One relationship
 // Route::get('/user/{id}/post/', function($id){
 //     return User::find($id)->post;
 // });
 
-// //One to One relationship reverse
+//One to One relationship reverse
 // Route::get('/post/{id}/user/', function($id){
 //     return Post::find($id)->user;
 // });
 
 //One to Many relationship
-Route::get('/posts', function(){
+// Route::get('/posts', function(){
     
-    $user = User::find(1);
+//     $user = User::find(1);
 
-    foreach($user->posts as $post){
-        //PHP so retorna um valor, por isso o "echo" 
-        echo $post . "<br>";
-    }
-});
+//     foreach($user->posts as $post){
+//         //PHP so retorna um valor, por isso o "echo" 
+//         echo $post . "<br>";
+//     }
+// });
+
+//Many to Many relationship
+
+// Route::get('/user/{id}/role', function($id){
+//     $user = User::find($id);
+//     foreach($user->roles as $role){
+//         return $role->name;
+        
+//     }
+
+//     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+//     return $user;
+
+// });
+
+//Accessing the intermediate table/pivot
+
+// Route::get('/user/pivot', function(){
+//     $user = User::find(1);
+//     foreach($user->roles as $role){
+//         echo $role->pivot;
+//     }
+// });

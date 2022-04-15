@@ -54,4 +54,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
+    //Aula 64
+    //criacao de uma relacao muitos para muitos
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
 }
