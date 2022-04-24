@@ -26,4 +26,20 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    //Aula 69 
+    //relacao polimorfica
+    public function photos(){
+
+        return $this->morphMany('App\Models\Photo', 'imageable');
+    }
+
+    //Aula 72
+    //polimorfica many-to-many
+    public function tags(){
+
+        return $this->morphToMany('App\Models\Tag', 'taggable');
+    }
+
+
 }

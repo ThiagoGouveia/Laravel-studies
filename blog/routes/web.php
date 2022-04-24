@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Roles;
+use App\Models\Country;
+use App\Models\Photo;
+use App\Models\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +48,8 @@ use App\Models\Roles;
 
 //Route::resource('posts', '\App\Http\Controllers\PostsController');
 
-Route::get('/contact','\App\Http\Controllers\PostsController@contact');
-Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
+// Route::get('/contact','\App\Http\Controllers\PostsController@contact');
+// Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
 
 /*
 |--------------------------------------------------------------------------
@@ -275,5 +278,62 @@ Route::get('/post/{id}','\App\Http\Controllers\PostsController@show_post');
 //     $user = User::find(1);
 //     foreach($user->roles as $role){
 //         echo $role->pivot;
+//     }
+// });
+
+// Route::get('user/country', function(){
+    
+//     $country = Country::find(1);
+
+//     foreach($country->post as $post){
+//         //return $post->title;
+//         echo $post->title . "<br>";
+//     }
+
+// });
+
+//Polymorphic Relations
+
+// Route::get('user/photos', function(){
+    
+//     $user = User::find(1);
+//     foreach($user->photos as $photo){
+//         return $photo;
+//     }
+// });
+
+// Route::get('post/photos', function(){
+    
+//     $post = Post::find(1);
+//     foreach($post->photos as $photo){
+//         //return $photo;
+//         echo $photo . "<br>";
+//     }
+// });
+
+// Route::get('photo/{id}/post', function($id){
+    
+//     $photo = Photo::findOrFail($id);
+//     return $photo->imageable;
+
+// });
+
+// Polymorphic Many to Many
+
+// Route::get('post/tag', function(){
+    
+//     $post = Post::find(1);
+
+//     foreach($post->tags as $tag){
+//         echo $tag. "<br>";
+//     }
+// });
+
+// Route::get('tag/post', function(){
+    
+//     $tag = Tag::find(2);
+
+//     foreach($tag->posts as $post){
+//         echo $post. "<br>";
 //     }
 // });

@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            // $table->integer('user_id')->unsigned();
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('country_id');
         });
     }
 
@@ -30,6 +25,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->dropColumn('country_id');
+            
+        });
     }
 };
