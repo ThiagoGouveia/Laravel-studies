@@ -8,6 +8,8 @@ use App\Models\Country;
 use App\Models\Photo;
 use App\Models\Tag;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +45,7 @@ use App\Models\Tag;
 // }));
 
 
-//Route::get('/post/{id}', '\App\Http\Controllers\PostController@index');
+
 
 
 //Route::resource('posts', '\App\Http\Controllers\PostsController');
@@ -337,3 +339,14 @@ use App\Models\Tag;
 //         echo $post. "<br>";
 //     }
 // });
+
+
+
+/*
+|--------------------------------------------------------------------------
+| CRUD Application
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::resource('/posts', '\App\Http\Controllers\PostsController');
