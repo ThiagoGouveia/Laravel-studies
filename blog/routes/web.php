@@ -349,4 +349,9 @@ use App\Models\Tag;
 |
 */
 
-Route::resource('/posts', '\App\Http\Controllers\PostsController');
+
+Route::group(['middleware'=>'web'], function(){
+
+    Route::resource('/posts', '\App\Http\Controllers\PostsController');
+
+});

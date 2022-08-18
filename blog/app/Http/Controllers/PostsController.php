@@ -15,6 +15,7 @@ class PostsController extends Controller
     public function index()
     {   
         $posts = Post::all();
+        // dd($posts);
         return view('posts.index', compact('posts'));
     }
 
@@ -37,12 +38,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+
+            'title' => 'required'
+           
+        ]);
 
         // return $request->all;
         
         Post::create($request->all());
         return redirect('/posts');
+        
         // $input = $request->all;
         // $input['title'] = $request->title;
         // Post::create($request->all());
