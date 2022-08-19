@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
-{
+{   
+    public $directory = "/images/";
     use HasFactory; 
     use SoftDeletes;
     
@@ -16,10 +17,7 @@ class Post extends Model
     protected $date = ['deleted_at'];
     //aula 51
     //autoriza que o metodo create adicione dados no banco
-    protected $fillable = [
-        'title', 
-        'content'
-    ];
+    protected $fillable = ['title', 'content', 'path'];
 
     //AULA 60
     //criacao de uma relacao 1 para 1 inversa
@@ -43,5 +41,9 @@ class Post extends Model
 
     public static function scopeLatest($query){
         return $query->orderBy('id', 'asc'->get());
+    }
+
+    public function getPathAttribute($value){
+        return $this->directory . $value;
     }
 }
